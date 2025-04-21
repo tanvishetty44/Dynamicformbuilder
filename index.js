@@ -1,0 +1,1 @@
+import "@fontsource/comic-neue";

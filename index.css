@@ -1,0 +1,158 @@
+/* Base Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Comic Neue', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* Main Container */
+.container {
+  position: relative;
+  min-height: 100vh;
+  width: 90%;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  animation: floatIn 1.2s ease-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Light/Dark Modes */
+.light-mode {
+  background: linear-gradient(to bottom right, #a2d2ff, #cdb4db);
+  color: #222;
+}
+.dark-mode {
+  background: linear-gradient(to bottom right, #2b2d42, #1a1b3a);
+  color: #eee;
+}
+
+/* Entrance Animation */
+@keyframes floatIn {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Cartoon Background */
+body {
+  background: linear-gradient(135deg, #ffe4ec, #d0f4ff), url('https://www.transparenttextures.com/patterns/cartographer.png');
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+/* Floating Cartoon Images */
+.cartoon {
+  position: absolute;
+  width: 100px;
+  opacity: 0.9;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cartoon1 { top: 10%; left: 5%; animation-delay: 0s; }
+.cartoon2 { bottom: 15%; right: 8%; animation-delay: 2s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #fff;
+  color: #222;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Buttons */
+.glow-btn, .remove-btn, .submit-btn {
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 105, 135, 0.4);
+}
+
+.glow-btn {
+  background: linear-gradient(145deg, #ff9aa2, #ffb7b2);
+}
+.glow-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #fda4af, #f87171);
+}
+
+.remove-btn {
+  background: linear-gradient(145deg, #ff6b6b, #ff8787);
+}
+.remove-btn:hover {
+  background: linear-gradient(145deg, #e03131, #fa5252);
+}
+
+.submit-btn {
+  background: linear-gradient(145deg, #43e97b, #38f9d7);
+}
+.submit-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #2cd4aa, #29e6a7);
+}
+
+/* Inputs & Selects */
+input[type="text"], select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px dashed #aaa;
+  border-radius: 12px;
+  background: #fff5;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+input:focus, select:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  outline: none;
+}
+
+/* Labels */
+label span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* Animated Fields */
+.fancy-field {
+  animation: bounceIn 0.5s ease;
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container { padding: 1.5rem; }
+  .glow-btn, .remove-btn { width: 100%; }
+}
